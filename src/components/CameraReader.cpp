@@ -8,7 +8,7 @@ void CameraReader::so_define_agent() {
   m_camera = std::make_unique<cv::VideoCapture>(cv::VideoCapture(1));
   m_camera->set(cv::CAP_PROP_FPS, 1);
 
-  // Verifica se la telecamera è aperta correttamente
+  // Check if the camera is open
   if (!m_camera->isOpened()) {
     throw std::runtime_error("Not able to open camera " + std::string(0));
   }
