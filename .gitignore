@@ -1,0 +1,35 @@
+# Python stuff
+*.pyc
+*.pyo
+
+# Model stuff
+/models/*
+
+# Build dir
+build
+
+/sh
+# OS generated files
+*.DS_Store
+*.DS_Store?
+
+# Other stuff
+.vscode
+
+# IDEs stuff
+.idea/
+.idea/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Project ignores
+data
+logs
+results
+dumps

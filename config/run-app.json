@@ -1,0 +1,6 @@
+{
+  "components": [
+    "Component1",
+    "PatchFeatsCalculator"
+  ]
+}
