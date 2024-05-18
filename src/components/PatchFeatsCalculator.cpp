@@ -47,7 +47,7 @@ void PatchFeatsCalculator::convert_frame_to_tensor_data(
       std::vector<std::size_t>{(unsigned long)normalized_image.rows,
                                (unsigned long)normalized_image.cols,
                                (unsigned long)normalized_image.channels()});
-  tensor = xt::moveaxis(tensor, 2, 0);
+  // tensor = xt::moveaxis(tensor, 2, 0);
 }
 
 void PatchFeatsCalculator::so_define_agent() {

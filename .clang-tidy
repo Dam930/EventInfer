@@ -1,0 +1,168 @@
+---
+Checks: '
+          clang-diagnostic-*,
+          clang-analyzer-*,
+          *,
+          -fuchsia-overloaded-operator,
+          -fuchsia-default-arguments*,
+          -misc-non-private-member-variables-in-classes,
+          -cppcoreguidelines-avoid-magic-numbers,
+          -bugprone-lambda-function-name,
+          -cppcoreguidelines-non-private-member-variables-in-classes,
+          -readability-magic-numbers,
+          -fuchsia-multiple-inheritance,
+          -modernize-use-trailing-return-type,
+          -google-build-using-namespace,
+          -cert-err58-cpp,
+          -fuchsia-statically-constructed-objects,
+          -*namespace-comment*,
+          -google-runtime-references,
+          -google-readability-avoid-underscore-in-googletest-name,
+          -llvmlibc-*,
+          -altera-struct-pack-align,
+          -cppcoreguidelines-pro-type-vararg,
+          -bugprone-easily-swappable-parameters,
+          -altera-unroll-loops,
+          -concurrency-mt-unsafe,
+          -cppcoreguidelines-avoid-non-const-global-variables,
+          -hicpp-vararg,
+          -modernize-return-braced-init-list,
+          -altera-id-dependent-backward-branch,
+          -modernize-concat-nested-namespaces,
+          -readability-function-cognitive-complexity,
+          -bugprone-reserved-identifier,
+          -cert-dcl37-c,
+          -cert-dcl51-cpp,
+          -abseil-string-*,
+          -readability-identifier-length,
+          -cppcoreguidelines-avoid-const-or-ref-data-members,
+          -cert-err33-c,
+          -modernize-macro-to-enum,
+          -readability-container-data-pointer,
+          -misc-use-anonymous-namespace,
+          -google-readability-casting,
+          -clang-analyzer-deadcode.DeadStores,
+          -misc-include-cleaner,
+          -performance-avoid-endl,
+          -clang-analyzer-cplusplus.NewDeleteLeaks,
+          -fuchsia-virtual-inheritance,
+          -readability-identifier-naming,
+          -google-upgrade-googletest-case,
+          -bugprone-stringview-nullptr,
+          -misc-confusable-identifiers'
+### Note: Following checks are disabled:
+#
+# slow:
+# -readability-identifier-naming,
+# -google-upgrade-googletest-case,
+# -bugprone-stringview-nullptr,
+# -misc-confusable-identifiers
+#
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*'
+AnalyzeTemporaryDtors: false
+FormatStyle:     file
+CheckOptions:
+### values different from default
+### default: empty
+  - key:             readability-identifier-length.IgnoredVariableNames
+    value:           '^(id|os)$'
+  - key:             readability-identifier-length.IgnoredParameterNames
+    value:           '^(id|os)$'
+  - key:             readability-identifier-length.IgnoredLoopCounterNames
+    value:           '^(it|i)$'
+### default: no list
+  - key:             cert-dcl16-c.NewSuffixes
+    value:           'L;LL;LU;LLU'
+### default: true
+  - key:             cert-oop54-cpp.WarnOnlyIfThisHasSuspiciousField
+    value:           '0'
+### default: false
+  - key:             cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors
+    value:           '1'
+### default: false
+  - key:             cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value:           '1'
+### default: h
+  - key:             google-global-names-in-headers.HeaderFileExtensions
+    value:           ',h,hh,hpp,hxx'
+### default: 0
+  - key:             google-readability-braces-around-statements.ShortStatementLines
+    value:           '1'
+### default: -1 (ignore the number of lines)
+  - key:             google-readability-function-size.LineThreshold
+    value:           '150'
+### default: 800
+  - key:             google-readability-function-size.StatementThreshold
+    value:           '500'
+### default: -1 (ignore the number of branches)
+  - key:             google-readability-function-size.BranchThreshold
+    value:           '32'
+### default: -1 (ignore the number of parameters)
+  - key:             google-readability-function-size.ParameterThreshold
+    value:           '10'
+### default: -1 (ignore the nesting level)
+  - key:             google-readability-function-size.NestingThreshold
+    value:           '10'
+### default: -1 (ignore the number of variables)
+  - key:             google-readability-function-size.VariableThreshold
+    value:           '15'
+### default: 1U, but will deleted -> unnessessary ? 
+  - key:             google-readability-namespace-comments.ShortNamespaceLines
+    value:           '10'
+### default: 1U, but will deletetd -> unnessessary ?
+  - key:             google-readability-namespace-comments.SpacesBeforeComments
+    value:           '2'
+### default: -1 (ignore the number of lines)
+  - key:             hicpp-function-size.LineThreshold
+    value:           '150'
+### default: 800
+  - key:             hicpp-function-size.StatementThreshold
+    value:           '500'
+### default: -1 (ignore the number of branches)
+  - key:             hicpp-function-size.BranchThreshold
+    value:           '32'
+### default: -1 (ignore the number of parameters)
+  - key:             hicpp-function-size.ParameterThreshold
+    value:           '10'
+### default: -1 (ignore the nesting level)
+  - key:             hicpp-function-size.NestingThreshold
+    value:           '10'
+### default: -1 (ignore the number of variables)
+  - key:             hicpp-function-size.VariableThreshold
+    value:           '15'
+### default: false
+  - key:             hicpp-special-member-functions.AllowSoleDefaultDtor
+    value:           '1'
+### default: std::unique_ptr, std::shared_ptr, std::auto_ptr
+  - key:             hicpp-use-emplace.SmartPointers
+    value:           '::std::shared_ptr;::std::unique_ptr;::std::auto_ptr;::std::weak_ptr'
+### default would be ::std::basic_string;::std::basic_string_view, default could be use
+  - key:             performance-faster-string-find.StringLikeClasses
+    value:           'std::basic_string'
+### default: If not specified, std:: for -std=c++20 and std::experimental:: for -std=c++11. 
+  - key:             portability-simd-intrinsics.Std
+    value:           ''
+### default: -1 (ignore the number of lines)
+  - key:             readability-function-size.LineThreshold
+    value:           '150'
+### default: 800
+  - key:             readability-function-size.StatementThreshold
+    value:           '500'
+### default: -1 (ignore the number of branches)
+  - key:             readability-function-size.BranchThreshold
+    value:           '32'
+### default: -1 (ignore the number of parameters)
+  - key:             readability-function-size.ParameterThreshold
+    value:           '10'
+### default: -1 (ignore the nesting level)
+  - key:             readability-function-size.NestingThreshold
+    value:           '10'
+### default: -1 (ignore the number of variables)
+  - key:             readability-function-size.VariableThreshold
+    value:           '15'
+### default value would be ::std::basic_string;::std::basic_string_view -> would use this instead of just string
+  - key:             readability-redundant-string-init.StringNames
+    value:           '::std::basic_string'
+...
+
