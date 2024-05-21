@@ -16,10 +16,6 @@ find_package(nlohmann_json 3.10 REQUIRED)
 find_package(onnxruntime REQUIRED)
 find_package(xtensor REQUIRED)
 
-find_library(onnxruntime_LIBRARY onnxruntime
-    PATHS "${onnxruntime_DIR}/lib"
-)
-
 #Add subdirectories 
 #Targets are specified within the subdirectories
 add_executable(artificialy_anomaly_detection)
@@ -29,7 +25,7 @@ add_subdirectory(src)
 target_include_directories(artificialy_anomaly_detection
     PRIVATE
     ${OpenCV_INCLUDE_DIRS}
-    ${onnxruntime_DIR}/include
+    ${onnxruntime_INCLUDE_DIRS}/onnxruntime/include
 )
 
 target_link_libraries(artificialy_anomaly_detection

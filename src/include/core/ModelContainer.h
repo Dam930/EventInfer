@@ -1,4 +1,4 @@
-#include <onnxruntime_cxx_api.h>
+#include <onnxruntime/include/onnxruntime_cxx_api.h>
 #include <xtensor/xview.hpp>
 
 namespace anomaly_detection {

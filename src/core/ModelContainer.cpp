@@ -30,11 +30,11 @@ ModelContainer::ModelContainer(const std::string &modelPath,
   // Define the names
   Ort::AllocatorWithDefaultOptions allocator;
   m_input_names.emplace_back(
-      m_session->GetInputName(0, allocator));
+      m_session->GetInputNameAllocated(0, allocator).get());
   m_input_shapes =
       m_session->GetInputTypeInfo(0).GetTensorTypeAndShapeInfo().GetShape();
   m_output_names.emplace_back(
-      m_session->GetOutputName(0, allocator));
+      m_session->GetOutputNameAllocated(0, allocator).get());
   m_output_shapes =
       m_session->GetOutputTypeInfo(0).GetTensorTypeAndShapeInfo().GetShape();
 }
