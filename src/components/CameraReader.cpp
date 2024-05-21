@@ -5,7 +5,7 @@ namespace components {
 
 void CameraReader::so_define_agent() {
   // Open the camera
-  m_camera = std::make_unique<cv::VideoCapture>(cv::VideoCapture(1));
+  m_camera = std::make_unique<cv::VideoCapture>(cv::VideoCapture(0));
   m_camera->set(cv::CAP_PROP_FPS, 1);
 
   // Check if the camera is open
