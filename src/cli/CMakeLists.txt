@@ -8,7 +8,7 @@ target_include_directories(cli
         ${CMAKE_SOURCE_DIR}/src/include
         ${OpenCV_INCLUDE_DIRS}
         ${onnxruntime_DIR}/include
-        ${CMAKE_SOURCE_DIR}/src/third_parties/sobjectizer/dev
+        ${sobjectizer_INCLUDE_DIRS}
 )
 target_link_libraries(cli
     config

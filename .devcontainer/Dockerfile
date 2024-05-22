@@ -96,5 +96,12 @@ RUN apt-get clean && \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
+RUN apt-get clean && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --fix-missing \
+        clangd \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
 RUN chsh -s ~/.bashrc
 ENV SHELL /bin/bash

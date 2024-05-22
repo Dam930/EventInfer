@@ -24,6 +24,7 @@ add_subdirectory(src)
 # Include dirs
 target_include_directories(artificialy_anomaly_detection
     PRIVATE
+    ${sobjectizer_INCLUDE_DIRS}
     ${OpenCV_INCLUDE_DIRS}
     ${onnxruntime_INCLUDE_DIRS}/onnxruntime/include
 )
@@ -35,9 +36,10 @@ target_link_libraries(artificialy_anomaly_detection
 )
 
 #Export targets and package
-target_link_libraries (artificialy_anomaly_detection  
-                        sobjectizer::SharedLib 
+target_link_libraries (artificialy_anomaly_detection
+                        sobjectizer::StaticLib
                         ${OpenCV_LIBS}
                         nlohmann_json::nlohmann_json
                         ${onnxruntime_LIBRARY}
-                        xtensor xtensor::optimize)
+                        xtensor xtensor::optimize
+)

@@ -22,6 +22,12 @@
 	"runArgs": [
 		"--privileged",
 		"--device",
-		"/dev/video0:/dev/video0"
+		"/dev/video0:/dev/video0",
+		"--device",
+		"/dev/video1:/dev/video1",
+		"--device",
+		"/dev/video2:/dev/video2",
+		"--device",
+		"/dev/video3:/dev/video3"
 	]
 }
