@@ -34,5 +34,4 @@ logs
 results
 dumps
 /.cache/
-/src/third_parties/sobjectizer/
 *.onnx
