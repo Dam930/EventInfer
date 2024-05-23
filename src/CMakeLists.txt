@@ -1,5 +1,5 @@
-# Include
-set(ARTIFICIALY_ARTIFICIALY_ANOMALY_INCLUDE_DIR  ${ARTIFICIALY_ARTIFICIALY_ANOMALY_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/include PARENT_SCOPE)
+# third-parties projects
+add_subdirectory(third_parties)
 
 # sub dir
 add_subdirectory(cli)
@@ -8,8 +8,13 @@ add_subdirectory(components)
 add_subdirectory(config)
 add_subdirectory(core)
 
-# third-parties projects
-add_subdirectory(third_parties)
+target_sources(artificialy_anomaly_detection
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+)
 
-# Sources
-set(ARTIFICIALY_ARTIFICIALY_ANOMALY_TARGETS ${ARTIFICIALY_ARTIFICIALY_ANOMALY_TARGETS} ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp PARENT_SCOPE )
+target_include_directories(artificialy_anomaly_detection
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${sobjectizer_INCLUDE_DIRS}
+)

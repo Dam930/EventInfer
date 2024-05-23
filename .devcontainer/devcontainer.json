@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cmake-tools",
+				"ms-vscode.cpptools-extension-pack",
+				"llvm-vs-code-extensions.vscode-clangd",
+				"mhutchie.git-graph"
+			],
+			"cmake.configureArgs": ["-DCMAKE_BUILD_TYPE=Debug"]
+		}
+	},
+	"mounts": [
+		"type=bind,source=/home/${localEnv:USER}/.ssh,target=/home/root/.ssh,readonly"
+	],
+	"runArgs": [
+		"--privileged",
+		"--device",
+		"/dev/video0:/dev/video0",
+		"--device",
+		"/dev/video1:/dev/video1",
+		"--device",
+		"/dev/video2:/dev/video2",
+		"--device",
+		"/dev/video3:/dev/video3"
+	]
+}

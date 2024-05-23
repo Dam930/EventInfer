@@ -16,8 +16,7 @@ public:
   };
 
   Reader(const std::filesystem::path &file_path) {
-    m_root_config = file_path.parent_path();
-    m_config = read_config_from_file(m_root_config);
+    m_config = read_config_from_file(file_path);
   }
 
   std::vector<ComponentElement> get_component_list();

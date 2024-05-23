@@ -27,8 +27,7 @@ void ApplicationManager::run_app() {
         nlohmann::json json_camera_reader = {};
         nlohmann::json json_feats_calculator = {
             {"max_queue_element", 6},
-            {"onnx_model_path", "/Users/damianobinaghi/Desktop/prove_realtime/"
-                                "anomaly-cpp/models/w-resnet50.onnx"}};
+            {"onnx_model_path", "/workspaces/inference-cpp/resnet50_v1.onnx"}};
 
         // Create instances
         std::unique_ptr<components::BaseComponent> agent_1 =
