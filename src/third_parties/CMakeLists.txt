@@ -1,2 +1,2 @@
 include(FetchContent)
-add_subdirectory(sobjectizer)
+add_subdirectory(sobjectizer/dev)

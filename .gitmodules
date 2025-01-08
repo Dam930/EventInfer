@@ -1,0 +1,3 @@
+[submodule "src/third_parties/sobjectizer"]
+	path = src/third_parties/sobjectizer
+	url = https://github.com/Stiffstream/sobjectizer.git
